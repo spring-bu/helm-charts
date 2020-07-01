@@ -1,0 +1,62 @@
+labels:
+  io.cattle.role: project
+  io.rancher.certified: experimental
+categories:
+  - Storage
+questions:
+  - variable: defaultImage
+    default: true
+    description: "Use default Docker image"
+    label: Use Default Image
+    type: boolean
+    group: "Container Images"
+    show_subquestion_if: false
+    subquestions:
+      - variable: image.repository
+        default: "hub.iquantex.com/public/cephfs-provisioner"
+        description: "Docker image name"
+        type: string
+        label: Cephfs Provisioner Image Name
+      - variable: image.tag
+        default: "latest"
+        description: "Cephfs Provisioner image tag"
+        type: string
+        label: Image Tag
+  - variable: cephfs.monitors
+    default: ""
+    description: "Setup Cephfs Cluster Monitors, e.g: 10.16.18.176:6789,10.16.18.177:6789,10.16.18.178:6789"
+    label: Setup Cephfs Cluster Monitors
+    required: true
+    type: string
+    group: "Setup Cephfs Cluster"
+  - variable: cephfs.adminId
+    default: "admin"
+    required: true
+    description: "Setup Cephfs Cluster adminId, e.g: admin"
+    label: Setup Cephfs Cluster adminId
+    type: string
+    group: "Setup Cephfs Cluster"
+  - variable: cephfs.username
+    default: "admin"
+    required: true
+    description: "Setup Connetct Cephfs Cluster Username, e.g: admin"
+    label: Setup Cephfs Cluster Username
+    type: string
+    group: "Setup Cephfs Cluster"
+  - variable: cephfs.authkey
+    default: ""
+    required: true
+    description: "Setup Connetct Cephfs Cluster Authkey"
+    label: Setup Cephfs Cluster Authkey
+    type: string
+    group: "Setup Cephfs Cluster"
+  - variable: cephfs.reclaimPolicy
+    default: "Retain"
+    description: "ReclaimPolicy of the Created StorageClass"
+    required: true
+    type: enum
+    label: ReclaimPolicy of the Created StorageClass
+    group: "Setup Cephfs Cluster"
+    options:
+      - "Delete"
+      - "Retain"

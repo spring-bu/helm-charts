@@ -1,0 +1,15 @@
+apiVersion: v1
+name: cephfs-provisioner
+description: cephfs-provisioner for Kubernetes
+type: application
+version: 0.1.5
+appVersion: latest
+icon: file://./ceph-logo.png
+maintainers:
+- email: shengquan.bu@iquantex.com
+  name: YoungMan
+- email: bushengquan@google.com
+  name: Spring-bu
+keywords:
+- cephfs
+- storage

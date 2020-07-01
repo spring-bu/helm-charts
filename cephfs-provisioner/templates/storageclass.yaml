@@ -1,0 +1,13 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: cephfs
+  namespace: {{ .Release.Namespace }}
+provisioner: ceph.com/cephfs
+reclaimPolicy: {{ .Values.cephfs.reclaimPolicy }}
+parameters:
+    monitors: {{ .Values.cephfs.monitors }}
+    adminId: {{ .Values.cephfs.adminId }}
+    adminSecretName: {{ .Values.cephfs.adminSecretName }}
+    adminSecretNamespace: {{ .Release.Namespace }}
+    claimRoot: {{ .Values.cephfs.claimRoot }}
